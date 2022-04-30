@@ -5,7 +5,7 @@ import re
   
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb+srv://instaboy:instaboy@instaboy.hh1km.mongodb.net/userdatabase?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "mongodb+srv://instaboy:instaboy@instaboy.hh1km.mongodb.net/userdatabase?retryWrites=true&w=majority&ssl=true&ssl.CERT_NONE=true"
 mongo = PyMongo(app)
 db = mongo.db.userdata
 
@@ -13,7 +13,7 @@ db = mongo.db.userdata
 def register():
     msg = ''
     if request.method == 'POST' and 'firstName' in request.form and 'lastName' in request.form and 'number' in request.form :
-        firstName = request.form['firsName']
+        firstName = request.form['firstName']
         lastName = request.form['lastName']
         number = request.form['number']
         print(firstName,lastName,number)
@@ -33,5 +33,6 @@ def register():
         msg = 'Please fill out the form !'
     return render_template('register.html',msg=msg)
 
+if __name__=='__main__':
+    app.run()
 
-#     return render_template('register.html', msg = msg)

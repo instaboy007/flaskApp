@@ -396,9 +396,3 @@ body {
         padding-bottom: 20px;
    }
 }
-
-.iti__flag {background-image: url("static/images/flags.png");}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .iti__flag {background-image: url("static/images/flags@2x.png");}
-}
