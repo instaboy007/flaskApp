@@ -20,29 +20,17 @@
     <div class="form_wrapper">
         <div class="form_container">
           <div class="title_container">
-            <h2>Register</h2>
+            <h2>OTP Validation</h2>
           </div>
           <div class="row clearfix">
-            <div class="">
-              <form action="{{ url_for('register') }}" id="registerForm" method="post">
+            <div class="col">
+              <form action="{{ url_for('OTP') }}" id="OTPForm" method="post">
                 <div class="row clearfix">
-                    <div class="input_field">
-                        <input type="tel" id="number" name ="number[main]" placeholder="Mobile Number" size="30">
+                    <div class="input_field" style="margin-left:auto;margin-right:auto">
+                        <input type="tel" id="number" name ="number" placeholder="Enter OTP" size="40">
                     </div>
                 </div>
-                <div class="row clearfix">
-                  <div class="col_half">
-                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                      <input type="text" id="firstName" name="firstName" placeholder="First Name" />
-                    </div>
-                  </div>
-                  <div class="col_half">
-                    <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                      <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
-                    </div>
-                  </div>
-                </div>
-                <input class="button" type="submit" value="Register" />
+                <input class="button" type="submit" value="Continue" size="30"/>
               </form>
             </div>
           </div>
@@ -51,26 +39,9 @@
       
     
   </body>
+
   <script>
-    $("#signin").submit(function(){
-      `window.location = "login.html"`;
-    });
-  </script>
-  <script>
-    const phoneInputField = document.querySelector("#number");
-    const phoneInput = window.intlTelInput(phoneInputField, {
-      separateDialCode: true,
-      preferredCountries:["in"],
-      hiddenInput: "full",
-      utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-    });
-  </script>
-  <script>
-    document.getElementById("#registerForm").submit(function() {
-      var full_number = number.getNumber(intlTelInputUtils.numberFormat.E164);
-      $("input[name='number[full]'").val(full_number);
-        alert(full_number)
-    });
+    
   </script>
   <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
