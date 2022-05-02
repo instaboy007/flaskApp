@@ -13,6 +13,7 @@ db = mongo.db.userdata
 
 
 @app.route('/',methods=('GET','POST'))
+@app.route('/index',methods=('GET','POST'))
 def index():
     userData=db.find()
     print(userData)
@@ -41,20 +42,10 @@ def register():
             db.insert_one({'firstname':firstName,'lastname':lastName,'number':fullNumber})
             msg = 'You have successfully registered !'
             session['userId']=number
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
     elif request.method == 'POST':
         msg = 'Please fill out the form !'
     return render_template('register.html',msg=msg)
-
-@app.route('/OTP', methods=('GET', 'POST'))
-def OTP():
-    userId=session.get('userId',None)
-    print(userId)
-    return render_template('OTP.html')
-
-@app.route('/home', methods=('GET', 'POST'))
-def home():
-    return render_template('home.html')
 
 if __name__=='__main__':
     app.run()
